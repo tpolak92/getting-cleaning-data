@@ -131,10 +131,10 @@ for (i in 1:length(combinedDataColNames)) {
 colnames(combinedData) = combinedDataColNames
 
 # Gather the table so now it is tidy
-combinedDataClean <- gather(combinedData, key = "features",value = "measurements",-subject_id, -activity_type_id,-activity_type)
+tidyData <- gather(combinedData, key = "features",value = "measurements",-subject_id, -activity_type_id,-activity_type)
 
-# combinedDataClean is the final clean dataset output
-combinedDataClean
+# tidyData is the final clean dataset output
+write.table(tidyData, './tidyData.txt',row.names=FALSE,sep='\t')
 
 #####################################################
 # STEP 5: Summarise dataset
